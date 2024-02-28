@@ -33,9 +33,11 @@ function App() {
   return (
     <div>
       <DisplayDetail  
+        cityName={dataArray.location.name} 
         countryName={dataArray.location.country} 
         region={dataArray.location.region}
-        temeperature={dataArray.current.temp_c}          
+        temeperatureC={dataArray.current.temp_c}   
+        temeperatureF={dataArray.current.temp_f} 
         weatherCondition={dataArray.current.condition.text} 
         windSpeedKph={dataArray.current.wind_kph} 
         windSpeedMph={dataArray.current.wind_mph} 

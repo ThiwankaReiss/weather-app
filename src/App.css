@@ -1,5 +1,12 @@
 .containerStyles{
-    width: 300px;
+    width: 250px;
     border-radius: 25px !important;
+    
 }
 
+.outer-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+  }
