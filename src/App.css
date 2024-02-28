@@ -1,5 +1,5 @@
-.containerWidth{
-    width: 200px;
-    display: flex;
-    text-align: center;
+.containerStyles{
+    width: 300px;
+    border-radius: 25px !important;
 }
+

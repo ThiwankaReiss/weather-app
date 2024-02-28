@@ -3,18 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import DisplayDetail from './components/displayDetail'
-function App() {
-
-
-  return (
-    <div>
-      <DisplayDetail countryName={country.location.country} ></DisplayDetail>
-    </div>
-  )
-}
 
 const searchVal="Panadura";
-let country="";
+let dataArray="";
 const apiKey ="5a3b5d0257934ff585884032242802";
 
     let reop={
@@ -28,12 +19,32 @@ const apiKey ="5a3b5d0257934ff585884032242802";
 
         // document.getElementById("tempLbl").innerHTML=data["current"]["temp_c"]+"C";
         // document.getElementById("textLbl").innerHTML=data["current"]["condition"]["text"];
-        country=data;
+        dataArray=data;
 
         // document.getElementById("img").src="https://"+data["current"]["condition"]["icon"];
         
     })
     .then(error => console.log("error",error))
+
+
+function App() {
+
+
+  return (
+    <div>
+      <DisplayDetail  
+        countryName={dataArray.location.country} 
+        region={dataArray.location.region}
+        temeperature={dataArray.current.temp_c}          
+        weatherCondition={dataArray.current.condition.text} 
+        windSpeedKph={dataArray.current.wind_kph} 
+        windSpeedMph={dataArray.current.wind_mph} 
+        humidity={dataArray.current.humidity}
+        image={dataArray.current.condition.icon}
+      ></DisplayDetail>
+    </div>
+  )
+}
 
 
 export default App
