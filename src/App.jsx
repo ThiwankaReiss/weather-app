@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form'
 import DisplayDetail from './components/displayDetail';
 import './App.css';
 
@@ -7,6 +8,12 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const searchVal = "Panadura";
   const apiKey = "5a3b5d0257934ff585884032242802";
+
+  const { handleSubmit, register } = useForm();
+
+  const submit = (data) => {
+    console.log(data);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,17 +36,30 @@ function App() {
           <div class="col-md-6 p-lg-5 mx-auto my-5">
             <h1 class="display-3 fw-bold text-warning">Weather App</h1>
             <h3 class="fw-normal text-info mb-3">Enter Your City Name ?</h3>
-            
-              <div class="input-group has-validation">
-                <span class="input-group-text"><i class="bi bi-globe-americas"></i></span>
-                <input type="text" class="form-control" id="username" placeholder="City/Town/Village" required>
 
-                </input>
+
+            <div className="container">
+              <div className="row">
+                <div className="input-group has-validation col-lg-12">
+                  <span className="input-group-text"><i class="bi bi-globe-americas"></i></span>
+                  <input type="text" {...register("email")} class="form-control" id="username" placeholder="City/Town/Village" required>
+                  </input>
+
+                </div>
+                <div className='col-lg-6'>
+                </div>
+                <div className='col-lg-6 mt-2'>
+                  <button onClick={handleSubmit(submit)} className="w-100 btn btn-md btn-primary" type="submit">Find Weather</button>
+                </div>
               </div>
+
             </div>
+
+
+          </div>
         </div>
-        <div  className='col-lg-3'>
-            {weatherData && (
+        <div className='col-lg-3'>
+          {weatherData && (
             <DisplayDetail
               cityName={weatherData.location.name}
               countryName={weatherData.location.country}
@@ -55,7 +75,7 @@ function App() {
           )}
         </div>
       </div>
-      
+
     </div>
   );
 }
