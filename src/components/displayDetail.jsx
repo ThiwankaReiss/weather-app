@@ -1,6 +1,6 @@
 import './../App.css'
 
-function DisplayDetail({ cityName, countryName, region, temeperatureC, temeperatureF, weatherCondition, windSpeedKph, windSpeedMph, humidity, image }) {
+function DisplayDetail({ cityName, countryName, region, temeperatureC, temeperatureF, weatherCondition, windSpeedKph, windSpeedMph, humidity, image ,time}) {
 
     return (
 
@@ -8,7 +8,8 @@ function DisplayDetail({ cityName, countryName, region, temeperatureC, temeperat
 
 
             <p className=" fs-3 text-uppercase text-primary m-0">{cityName}</p>
-            <p className='text-muted '>{region}/{countryName}</p>
+            <p className='text-muted '>{region}/{countryName}<br/>{time}</p>
+            
 
             <p className="fs-1 text-center mx-auto d-block m-0">{temeperatureC}&deg;C / {temeperatureF}&deg;F</p>
             <p className=" mx-auto d-block text-success">{weatherCondition}</p>
