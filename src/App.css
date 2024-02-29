@@ -1,7 +1,7 @@
 .containerStyles{
     width: 250px;
     border-radius: 25px !important;
-    
+   
 }
 
 .outer-container {
@@ -10,3 +10,7 @@
     align-items: center; 
 
   }
+.backImage{
+    background: url('assets/earthImage.jpg');
+    background-size: cover;
+}
