@@ -28,7 +28,7 @@ function App() {
     const fetchData = async () => {
       
       try {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchVal}`);
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchVal}`);
         const data = await response.json();
         console.log(data)
 //         error: {code: 1006, message: 'No matching location found.'
@@ -55,7 +55,7 @@ function App() {
       }
 
       try {
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchVal}`);
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchVal}`);
         const data = await response.json();
         console.log(data)
 //         error: {code: 1006, message: 'No matching location found.'
